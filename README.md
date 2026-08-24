@@ -76,4 +76,4 @@ pomodoro/
 
 MIT – free to use and modify.
 
-© 2026 Tonder Tech. All rights reserved.
+© 2026 Tondar Tech. All rights reserved.
