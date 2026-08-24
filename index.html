@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0f1419" />
+  <meta name="description" content="Pomodoro Timer by Tonder Tech — focus sessions with short and long breaks" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Pomodoro" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
+  <title>Pomodoro Timer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header>
+      <div class="top-bar">
+        <div class="lang-switcher" id="lang-switcher" title="Language"></div>
+        <div class="theme-switcher" id="theme-switcher" title="Theme"></div>
+      </div>
+      <h1 id="title">Pomodoro Timer</h1>
+      <p class="subtitle" id="subtitle">Focus · Short break · Long break</p>
+    </header>
+
+    <section class="mode-row" id="mode-row">
+      <button type="button" class="mode-btn active" data-mode="focus">
+        <span id="label-focus">Focus</span>
+      </button>
+      <button type="button" class="mode-btn" data-mode="short">
+        <span id="label-short">Short Break</span>
+      </button>
+      <button type="button" class="mode-btn" data-mode="long">
+        <span id="label-long">Long Break</span>
+      </button>
+    </section>
+
+    <div class="timer-wrap">
+      <div class="progress-ring">
+        <svg viewBox="0 0 120 120">
+          <circle class="ring-bg" cx="60" cy="60" r="54" />
+          <circle class="ring-progress" id="ring-progress" cx="60" cy="60" r="54" />
+        </svg>
+        <div class="timer-display">
+          <div class="time" id="time">25:00</div>
+          <div class="session" id="session-label">Focus</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button type="button" id="btn-reset" class="btn secondary" title="Reset">
+        <span id="label-reset">Reset</span>
+      </button>
+      <button type="button" id="btn-start" class="btn primary">
+        <span id="label-start">Start</span>
+      </button>
+      <button type="button" id="btn-skip" class="btn secondary" title="Skip">
+        <span id="label-skip">Skip</span>
+      </button>
+    </div>
+
+    <section class="stats">
+      <div class="stat">
+        <span class="stat-value" id="stat-sessions">0</span>
+        <span class="stat-label" id="label-sessions">Sessions</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value" id="stat-focus">0</span>
+        <span class="stat-label" id="label-focus-time">Focus min</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value" id="stat-streak">0</span>
+        <span class="stat-label" id="label-streak">Streak</span>
+      </div>
+    </section>
+
+    <section class="settings-panel">
+      <h2 id="settings-title">Durations (minutes)</h2>
+      <div class="settings-grid">
+        <label>
+          <span id="label-dur-focus">Focus</span>
+          <input type="number" id="dur-focus" min="1" max="90" value="25" />
+        </label>
+        <label>
+          <span id="label-dur-short">Short</span>
+          <input type="number" id="dur-short" min="1" max="30" value="5" />
+        </label>
+        <label>
+          <span id="label-dur-long">Long</span>
+          <input type="number" id="dur-long" min="1" max="60" value="15" />
+        </label>
+        <label>
+          <span id="label-long-every">Long every</span>
+          <input type="number" id="long-every" min="2" max="10" value="4" />
+        </label>
+      </div>
+      <label class="auto-start">
+        <input type="checkbox" id="auto-start" />
+        <span id="label-auto-start">Auto-start next session</span>
+      </label>
+    </section>
+
+    <footer>
+      <div class="footer-brand">
+        <img src="icons/logo-footer.png" alt="Tonder Tech" class="footer-logo" width="28" height="28" />
+        <div class="footer-text-wrap">
+          <p id="footer-text">Pomodoro Timer · Tonder Tech</p>
+          <p class="copyright" id="copyright-text">© 2026 Tonder Tech · v1.0 · All rights reserved</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
